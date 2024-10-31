@@ -1,6 +1,6 @@
 # MusicGo 🎶
 
-**Intantly publicly deploy a self-hosted music player app built with Expo Go, Golang, and Ngrok. Develop app on linux or windows for IOS!!!**
+**Intantly publicly deploy a self-hosted music player app built with Expo Go, Golang, and Ngrok. Develop apps on linux or windows for IOS!!!**
 
 Have you ever wondered if you can develop IOS applications fast without cable or an Apple computer/Mac? Develop IOS applications with hot-reload on linux or windows with MusicGo! 
 
