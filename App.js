@@ -1,18 +1,24 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
-import Home from "./components/Home";
-import SongListScreen from "./components/SongListScreen";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import Home from "./components/Home"; // Update with the correct path
+import SongListScreen from "./components/SongListScreen"; // Update with the correct path
+import Info from "./components/Info"; // Import your new Info component
+import CustomDrawerContent from "./components/CustomDrawerContent"; // Import the custom drawer
 
-const Stack = createStackNavigator();
+const Drawer = createDrawerNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="SongList" component={SongListScreen} />
-      </Stack.Navigator>
+      <Drawer.Navigator
+        drawerContent={(props) => <CustomDrawerContent {...props} />}
+        initialRouteName="Home"
+      >
+        <Drawer.Screen name="Home" component={Home} />
+        <Drawer.Screen name="SongListScreen" component={SongListScreen} />
+        <Drawer.Screen name="Info" component={Info} />
+      </Drawer.Navigator>
     </NavigationContainer>
   );
 };
