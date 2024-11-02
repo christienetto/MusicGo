@@ -1,30 +1,24 @@
-// components/SearchBar.js
 import React from "react";
-import { StyleSheet, TextInput, View } from "react-native";
+import { StyleSheet, TextInput } from "react-native";
 
 const SearchBar = ({ searchQuery, onSearch }) => {
   return (
-    <View style={styles.container}>
-      <TextInput
-        style={styles.input}
-        placeholder="Search for a song..."
-        value={searchQuery}
-        onChangeText={onSearch}
-      />
-    </View>
+    <TextInput
+      style={styles.searchBar}
+      placeholder="Search for a song..."
+      value={searchQuery}
+      onChangeText={onSearch}
+    />
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    backgroundColor: "#f1f1f1",
-    padding: 10,
-    borderRadius: 5,
-    marginBottom: 10, // Space between the search bar and other components
-  },
-  input: {
+  searchBar: {
     height: 40,
+    borderColor: "gray",
+    borderWidth: 1,
     paddingHorizontal: 10,
+    marginBottom: 10,
   },
 });
 

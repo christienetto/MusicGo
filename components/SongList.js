@@ -2,39 +2,39 @@ import React from "react";
 import { StyleSheet, FlatList, TouchableOpacity, Text } from "react-native";
 
 const SongList = ({ songs, selectSong, currentSongIndex }) => {
-  const renderItem = ({ item, index }) => (
-    <TouchableOpacity
-      style={[styles.item, currentSongIndex === index && styles.selectedItem]}
-      onPress={() => selectSong(index)}
-    >
-      <Text style={styles.itemText}>{item.title}</Text>
-    </TouchableOpacity>
-  );
-
   return (
     <FlatList
       data={songs}
-      renderItem={renderItem}
-      keyExtractor={(item) => item.title}
-      style={styles.list}
+      keyExtractor={(item) => item.url}
+      renderItem={({ item, index }) => (
+        <TouchableOpacity
+          onPress={() => selectSong(index)}
+          style={styles.songItem}
+        >
+          <Text
+            style={
+              currentSongIndex === index ? styles.activeSong : styles.songTitle
+            }
+          >
+            {item.title.replace(".mp3", "")}
+          </Text>
+        </TouchableOpacity>
+      )}
     />
   );
 };
 
 const styles = StyleSheet.create({
-  list: {
-    width: "100%",
-  },
-  item: {
+  songItem: {
     padding: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: "#ccc",
   },
-  selectedItem: {
-    backgroundColor: "#e0e0e0",
-  },
-  itemText: {
+  songTitle: {
     fontSize: 16,
+  },
+  activeSong: {
+    fontSize: 16,
+    fontWeight: "bold",
+    color: "blue",
   },
 });
 

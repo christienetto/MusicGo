@@ -12,10 +12,12 @@ const SongControls = ({
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    playSong();
+    if (currentSongIndex !== null) {
+      playSong();
+    }
     return () => {
       if (sound) {
-        sound.unloadAsync(); // Cleanup sound on unmount
+        sound.unloadAsync();
       }
     };
   }, [currentSongIndex]);
@@ -25,7 +27,7 @@ const SongControls = ({
       await sound.unloadAsync();
     }
     const { sound: newSound } = await Audio.Sound.createAsync({
-      uri: filteredData[currentSongIndex].url,
+      uri: filteredData[currentSongIndex]?.url,
     });
     setSound(newSound);
     await newSound.playAsync();
@@ -42,19 +44,12 @@ const SongControls = ({
   const nextSong = () => {
     const nextIndex = (currentSongIndex + 1) % filteredData.length;
     setCurrentSongIndex(nextIndex);
-    // Optionally, you could call selectSong(nextIndex) here if needed
   };
 
   const previousSong = () => {
     const prevIndex =
       (currentSongIndex - 1 + filteredData.length) % filteredData.length;
     setCurrentSongIndex(prevIndex);
-    // Optionally, you could call selectSong(prevIndex) here if needed
-  };
-
-  const handleSelectSong = (index) => {
-    setCurrentSongIndex(index);
-    selectSong(index); // Call selectSong when a song is selected
   };
 
   return (
@@ -82,17 +77,16 @@ const styles = StyleSheet.create({
   controls: {
     flexDirection: "row",
     justifyContent: "space-around",
-    width: "100%",
-    marginBottom: 20,
+    padding: 20,
   },
   button: {
-    backgroundColor: "#6200EE",
     padding: 10,
+    backgroundColor: "#007BFF",
     borderRadius: 5,
   },
   buttonText: {
-    color: "#FFF",
-    fontSize: 18,
+    color: "#fff",
+    fontSize: 16,
   },
 });
 
