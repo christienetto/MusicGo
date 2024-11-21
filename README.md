@@ -59,19 +59,6 @@ Before you begin, ensure you have the following installed:
    - Now Playing Display
    - Playback Controls
 
----
-
-## 📸 **Screenshots**
-
-Here are some previews of **MusicGo** in action:
-
-![Screenshot 1](https://via.placeholder.com/500x300.png?text=Screenshot+1)  
-_Your music library at your fingertips!_
-
-![Screenshot 2](https://via.placeholder.com/500x300.png?text=Screenshot+2)  
-_Enjoy music with full playback control._
-
----
 
 ## 🛠 **Troubleshooting**
 
@@ -91,7 +78,7 @@ We welcome contributions to **MusicGo**! Feel free to fork the repository and su
 
 ### 💬 **Contact & Support**
 
-If you encounter any issues or need help, feel free to open an issue on the GitHub repository or contact us through [email@example.com].
+If you encounter any issues or need help, feel free to open an issue on the GitHub repository.
 
 ---
 
